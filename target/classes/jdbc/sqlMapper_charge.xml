@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.peachmarket.opticyellow.purchase">
+
+	
+	<insert id="C_CHARGE" parameterType="com.Jasus.GoodNews_BarberShop.charge.model.ChargeVO">
+		insert into record(r_num,m_name,r_date,m_cash,r_cash,m_num,r_type)
+		values(seq_record.nextval,#{m_name},SYSDATE + 9/24,#{remain},#{cost},#{m_num},'충전')
+	</insert>	
+	
+	
+	<update id="C2_CHARGE" parameterType ="com.Jasus.GoodNews_BarberShop.charge.model.ChargeVO">
+	UPDATE member
+	SET m_cash = #{remain}
+	WHERE m_num = #{m_num}
+	
+	</update>
+	
+</mapper>
